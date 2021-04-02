@@ -1,0 +1,13 @@
+name: PistonEntityFixer
+version: ${project.version}
+api-version: 1.13
+main: net.pistonmaster.pistonentityfixer.PistonEntityFixer
+authors: [ AlexProgrammerDE ]
+description: Lists and kills entities as you wish.
+permissions:
+  pistonentityfixer.fix:
+    description: Plugin main permission.
+commands:
+  fixentities:
+    description: Plugin main command.
+    permission: pistonentityfixer.fix
