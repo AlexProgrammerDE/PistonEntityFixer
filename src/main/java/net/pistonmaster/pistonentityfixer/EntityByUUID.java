@@ -7,39 +7,36 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 
-public class FixCommand implements CommandExecutor {
+import java.util.UUID;
+
+public class EntityByUUID implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender.hasPermission("pistonentityfixer.fix")) {
-            if (args.length > 1) {
+            if (args.length > 0) {
                 for (World world : Bukkit.getWorlds()) {
                     for (Entity entity : world.getEntities()) {
-                        if (entity.getType() == getType(args[0])) {
-                            if (args[1].equalsIgnoreCase("list")) {
-                                sender.sendMessage(coolFormat(entity.getLocation()) + " " + entity.getUniqueId());
-                            } else if (args[1].equalsIgnoreCase("kill")) {
-                                Bukkit.getScheduler().runTask(PistonEntityFixer.getPlugin(PistonEntityFixer.class), entity::remove);
+                        if (entity.getUniqueId().equals(UUID.fromString(args[0]))) {
+                            sender.sendMessage(coolFormat(entity.getLocation()));
+
+                            for (Player player : entity.getLocation().getNearbyPlayers(50)) {
+                                sender.sendMessage("Nearby player: " + player.getName());
                             }
+                            return true;
                         }
                     }
                 }
+
+                sender.sendMessage("Couldn't find entity with that uuid!");
             } else {
-                sender.sendMessage("/fixentities entitytype [list|kill] [verbose]");
+                sender.sendMessage("/getentitybyid [id]");
                 return false;
             }
         }
 
         return true;
-    }
-
-    private EntityType getType(String str) {
-        try {
-            return EntityType.valueOf(str);
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
     }
 
     private String coolFormat(Location loc) {

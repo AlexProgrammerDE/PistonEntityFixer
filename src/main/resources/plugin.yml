@@ -11,3 +11,15 @@ commands:
   fixentities:
     description: Plugin main command.
     permission: pistonentityfixer.fix
+  getentitybyid:
+    description: Get entities by id.
+    permission: pistonentityfixer.fix
+  tameinfo:
+    description: Info over tameables
+    permission: pistonentityfixer.fix
+  topentities:
+    description: Info over top entities
+    permission: pistonentityfixer.fix
+  topplace:
+    description: Info over top places
+    permission: pistonentityfixer.fix

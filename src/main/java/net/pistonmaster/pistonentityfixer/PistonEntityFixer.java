@@ -12,6 +12,10 @@ public final class PistonEntityFixer extends JavaPlugin {
 
         log.info(ChatColor.AQUA + "Registering command");
         getServer().getPluginCommand("fixentities").setExecutor(new FixCommand());
+        getServer().getPluginCommand("getentitybyid").setExecutor(new EntityByUUID());
+        getServer().getPluginCommand("tameinfo").setExecutor(new TameInfo());
+        getServer().getPluginCommand("topentities").setExecutor(new TopEntities());
+        getServer().getPluginCommand("topplace").setExecutor(new TopPlace());
 
         log.info(ChatColor.AQUA + "Done! :D");
     }
