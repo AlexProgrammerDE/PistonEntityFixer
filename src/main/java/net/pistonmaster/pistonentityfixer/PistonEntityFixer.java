@@ -1,5 +1,6 @@
 package net.pistonmaster.pistonentityfixer;
 
+import net.pistonmaster.pistonentityfixer.commands.*;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -16,6 +17,7 @@ public final class PistonEntityFixer extends JavaPlugin {
         getServer().getPluginCommand("tameinfo").setExecutor(new TameInfo());
         getServer().getPluginCommand("topentities").setExecutor(new TopEntities());
         getServer().getPluginCommand("topplace").setExecutor(new TopPlace());
+        getServer().getPluginCommand("pistonentityfixer").setExecutor(new MainCommand(this));
 
         log.info(ChatColor.AQUA + "Done! :D");
     }

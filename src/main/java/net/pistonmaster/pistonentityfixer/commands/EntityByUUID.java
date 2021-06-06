@@ -1,4 +1,4 @@
-package net.pistonmaster.pistonentityfixer;
+package net.pistonmaster.pistonentityfixer.commands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -8,12 +8,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
 public class EntityByUUID implements CommandExecutor {
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
         if (sender.hasPermission("pistonentityfixer.fix")) {
             if (args.length > 0) {
                 for (World world : Bukkit.getWorlds()) {

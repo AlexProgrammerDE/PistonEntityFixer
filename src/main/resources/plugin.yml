@@ -9,17 +9,22 @@ permissions:
     description: Plugin main permission.
 commands:
   fixentities:
-    description: Plugin main command.
+    description: Kill and list entities by type.
     permission: pistonentityfixer.fix
   getentitybyid:
     description: Get entities by id.
     permission: pistonentityfixer.fix
   tameinfo:
-    description: Info over tameables
+    description: Info about tameables.
     permission: pistonentityfixer.fix
   topentities:
-    description: Info over top entities
+    description: List of top entities.
     permission: pistonentityfixer.fix
   topplace:
-    description: Info over top places
+    description: List of top places of entities.
     permission: pistonentityfixer.fix
+  pistonentityfixer:
+    description: Plugin main command.
+    permission: pistonentityfixer.fix
+    aliases:
+      - pef
