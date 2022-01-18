@@ -7,22 +7,9 @@ description: Lists and kills entities as you wish.
 permissions:
   pistonentityfixer.fix:
     description: Plugin main permission.
+    default: op
+
 commands:
-  fixentities:
-    description: Kill and list entities by type.
-    permission: pistonentityfixer.fix
-  getentitybyid:
-    description: Get entities by id.
-    permission: pistonentityfixer.fix
-  tameinfo:
-    description: Info about tameables.
-    permission: pistonentityfixer.fix
-  topentities:
-    description: List of top entities.
-    permission: pistonentityfixer.fix
-  topplace:
-    description: List of top places of entities.
-    permission: pistonentityfixer.fix
   pistonentityfixer:
     description: Plugin main command.
     permission: pistonentityfixer.fix

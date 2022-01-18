@@ -1,16 +1,13 @@
-package net.pistonmaster.pistonentityfixer.commands;
+package net.pistonmaster.pistonentityfixer.subcommands;
 
 import org.bukkit.Location;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Tameable;
-import org.jetbrains.annotations.NotNull;
 
-public class TameInfo implements CommandExecutor {
+public class TameInfo implements SubCommand {
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
+    public boolean onCommand(CommandSender sender, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
 
@@ -33,6 +30,11 @@ public class TameInfo implements CommandExecutor {
         }
 
         return true;
+    }
+
+    @Override
+    public String getDescription() {
+        return "Get info about tamable entities";
     }
 
     private String coolFormat(Location loc) {
